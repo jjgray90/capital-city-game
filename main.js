@@ -46,7 +46,7 @@ const capitalCities = {
   Comoros: "Moroni",
   Congo: "Brazzaville",
   "Cook Islands": "Avarua",
-  "Costa Rica": "San Jos",
+  "Costa Rica": "San Jose",
   Croatia: "Zagreb",
   Cuba: "La Habana",
   Cyprus: "Nicosia",
@@ -67,7 +67,7 @@ const capitalCities = {
   "Falkland Islands": "Stanley",
   "Faroe Islands": "Tórshavn",
   "Fiji Islands": "Suva",
-  Finland: "Helsinki [Helsingfors]",
+  Finland: "Helsinki",
   France: "Paris",
   "French Guiana": "Cayenne",
   "French Polynesia": "Papeete",
@@ -181,7 +181,7 @@ const capitalCities = {
   "Saint Vincent and the Grenadines": "Kingstown",
   Samoa: "Apia",
   "San Marino": "San Marino",
-  "Sao Tome and Principe": "S",
+  "Sao Tome and Principe": "Sao Tome",
   "Saudi Arabia": "Riyadh",
   Scotland: "Edinburgh",
   Senegal: "Dakar",
@@ -255,23 +255,40 @@ const getRandomCountry = obj => {
   const randomCountry = countries[Math.floor(countries.length * Math.random())];
 
   document.getElementById("box-four").innerHTML = capitalCities[randomCountry];
-
   return randomCountry;
 };
 
-document.getElementById("country-card").innerHTML = getRandomCountry(capitalCities);
+const getNewInputs = () => {
+  document.getElementById("country-card").innerHTML = getRandomCountry(
+    capitalCities
+  );
 
-document.getElementById("box-one").innerHTML = getRandomCities(capitalCities);
+  document.getElementById("box-one").innerHTML = getRandomCities(capitalCities);
 
-document.getElementById("box-two").innerHTML = getRandomCities(capitalCities);
+  document.getElementById("box-two").innerHTML = getRandomCities(capitalCities);
 
-document.getElementById("box-three").innerHTML = getRandomCities(capitalCities);
+  document.getElementById("box-three").innerHTML = getRandomCities(
+    capitalCities
+  );
+};
 
 let score = 0;
+let countries = Object.keys(capitalCities);
+let cities = Object.values(capitalCities);
 
 const getScore = () => {
-  score++;
+  if (
+    Object.keys(
+      capitalCities[document.getElementById("country-card").innerHTML]
+    ) ==
+    Object.values(capitalCities[document.getElementById("box-four").innerHTML])
+  ) {
+    score++;
+  } else {
+    score;
+  }
   updateHtmlScore();
+  getNewInputs();
 };
 
 const updateHtmlScore = () => {
@@ -279,4 +296,4 @@ const updateHtmlScore = () => {
 };
 
 updateHtmlScore();
-
+getNewInputs();

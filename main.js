@@ -197,7 +197,7 @@ const capitalCities = {
   "South Korea": "Seoul",
   "South Sudan": "Juba",
   Spain: "Madrid",
-  SriLanka: "Colombo",
+  "Sri Lanka": "Colombo",
   Sudan: "Khartum",
   Suriname: "Paramaribo",
   "Svalbard and Jan Mayen": "Longyearbyen",
@@ -254,14 +254,21 @@ const getRandomCountry = obj => {
   //  Random country from array
   const randomCountry = countries[Math.floor(countries.length * Math.random())];
 
-  document.getElementById("box-four").innerHTML = capitalCities[randomCountry];
   return randomCountry;
 };
 
+let randomCountry = getRandomCountry(capitalCities);
+let randomCity = capitalCities[randomCountry];
+
+const refreshAnswer = () => {
+  randomCountry = getRandomCountry(capitalCities);
+  randomCity = capitalCities[randomCountry];
+};
+
 const getNewInputs = () => {
-  document.getElementById("country-card").innerHTML = getRandomCountry(
-    capitalCities
-  );
+  refreshAnswer();
+
+  document.getElementById("country-card").innerHTML = randomCountry;
 
   document.getElementById("box-one").innerHTML = getRandomCities(capitalCities);
 
@@ -270,6 +277,7 @@ const getNewInputs = () => {
   document.getElementById("box-three").innerHTML = getRandomCities(
     capitalCities
   );
+  document.getElementById("box-four").innerHTML = randomCity;
 };
 
 let score = 0;
@@ -297,3 +305,10 @@ const updateHtmlScore = () => {
 
 updateHtmlScore();
 getNewInputs();
+
+const createButtons = () => {};
+// let index = 0;
+for (let index = 0; index < 4; index++) {
+  // getRandomCities(capitalCities);
+  console.log(getRandomCities(capitalCities));
+}

@@ -262,35 +262,46 @@ let randomCity = capitalCities[randomCountry];
 const correctAnswer = () => {
   randomCountry = getRandomCountry(capitalCities);
   randomCity = capitalCities[randomCountry];
-  `<div><button onclick=getScore("${cityToPrint}")>${cityToPrint}</button></div>`;
 };
+console.log(randomCountry);
+console.log(randomCity);
 
 let mockAnswer = "London";
 
-// const getNewInputs = () => {
-//   refreshAnswer();
+// let wrongAnswersArray = [];
 
-//   document.getElementById("box-four").innerHTML = randomCity;
-// };
-
-// getNewInputs();
-
-const createButtons = () => {
-  let output = "";
-  for (let index = 0; index < 3; index++) {
-    let cityToPrint = getRandomCities(capitalCities);
-    output += `<div><button onclick=getScore("${cityToPrint}")>${cityToPrint}</button></div>`;
+const shuffle = array => {
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
-  return output;
 };
 
+const createAnswerButtons = item => {
+  `<div><button onclick=getScore("${item}")>item</button></div>`;
+};
+
+const createAnswersArray = () => {
+  let wrongAnswersArray = [];
+  for (let index = 0; index < 3; index++) {
+    wrongAnswersArray.push(getRandomCities(capitalCities));
+  }
+  let answersArray = [...wrongAnswersArray, randomCity];
+  shuffle(answersArray);
+  const answers = answersArray.forEach(createAnswerButtons)
+  return answers;
+};
+
+
+
+// createAnswersArray.forEach(createAnswerButtons);
+// console.log(createAnswersArray());
+
 const printCountry = () =>
-  (document.getElementById("country-card").innerHTML = getRandomCountry(
-    capitalCities
-  ));
+  (document.getElementById("country-card").innerHTML = randomCountry);
 
 const printButtons = () =>
-  (document.getElementById("answer-boxes").innerHTML = createButtons());
+  (document.getElementById("answer-boxes").innerHTML = createAnswerButtons);
 
 printCountry();
 printButtons();
@@ -316,14 +327,10 @@ const updateHtmlScore = () => {
 
 updateHtmlScore();
 
-let arr = [1, 2, 3];
-
-console.log(shuffle(arr));
-
-
 // for loop to get 3 x random cities - push into an Array
 // spread operator to create new version of that array, and put the correct city into it
 // math.random function to shuffle the order of the array
 // map over array and apply html string
 // print buttons function
 
+// output += `<div><button onclick=getScore("${cityToPrint}")>${cityToPrint}</button></div>`;

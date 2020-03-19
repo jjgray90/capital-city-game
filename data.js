@@ -1,4 +1,4 @@
-const capitalCities = {
+export const capitalCities = {
   Afghanistan: "Kabul",
   Albania: "Tirana",
   Algeria: "Alger",
@@ -233,77 +233,3 @@ const capitalCities = {
   Zambia: "Lusaka",
   Zimbabwe: "Harare"
 };
-
-// import capitalCities from "./data";
-
-const getRandomCities = obj => {
-  const countries = Object.keys(obj);
-  const randomCountry = countries[Math.floor(countries.length * Math.random())];
-  return obj[randomCountry];
-};
-
-const getRandomCountry = obj => {
-  const countries = Object.keys(obj);
-  const randomCountry = countries[Math.floor(countries.length * Math.random())];
-
-  return randomCountry;
-};
-
-let randomCountry = getRandomCountry(capitalCities);
-let randomCity = capitalCities[randomCountry];
-
-const correctAnswer = () => {
-  randomCountry = getRandomCountry(capitalCities);
-  randomCity = capitalCities[randomCountry];
-};
-
-const shuffle = array => {
-  for (let i = array.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-};
-
-const createAnswerButtons = item =>
-  `<div><button onclick=getScore("${item}")>${item}</button></div>`;
-
-const createAnswersArray = () => {
-  document.getElementById("answer-boxes").innerHTML = "";
-  let wrongAnswersArray = [];
-  for (let index = 0; index < 3; index++) {
-    wrongAnswersArray.push(getRandomCities(capitalCities));
-  }
-  let answersArray = [...wrongAnswersArray, randomCity];
-  shuffle(answersArray);
-  const answers = answersArray.map(createAnswerButtons);
-  answers.forEach(printButtons);
-};
-
-const printCountry = () =>
-  (document.getElementById("country-card").innerHTML = randomCountry);
-
-const printButtons = button =>
-  (document.getElementById("answer-boxes").innerHTML += button);
-
-printCountry();
-createAnswersArray();
-
-let score = 0;
-
-const getScore = city => {
-  if (city === randomCity) {
-    score++;
-  }
-
-  score;
-  updateHtmlScore();
-  correctAnswer();
-  printCountry();
-  createAnswersArray();
-};
-
-const updateHtmlScore = () => {
-  document.getElementById("score").innerHTML = "Score: " + score;
-};
-
-updateHtmlScore();

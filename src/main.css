@@ -7,6 +7,10 @@
 }
 
 body {
+  background-image: url("./img/world-map.png");
+  background-color: #cccc;
+  background-size: cover;
+  position: relative;
   height: 100vh;
   width: 100%;
   padding: 10px;
@@ -14,10 +18,11 @@ body {
 
 body h1 {
   margin: 10px;
+  font-size: 25px;
   text-align: center;
 }
 
-body section {
+body .game {
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -32,21 +37,15 @@ body section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-body section.game {
   width: 80%;
-  height: 75%;
+  height: 80%;
 }
 
-body section.game div {
+body .game .country {
   border: 2px solid black;
-}
-
-body section.game .country {
   font-size: 35px;
-  margin: 0 auto;
-  background-color: pink;
+  background-color: #cccc;
+  opacity: 0.7;
   height: 45%;
   width: 100%;
   display: -webkit-box;
@@ -59,10 +58,11 @@ body section.game .country {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+  margin-bottom: 5px;
 }
 
-body section.game #answer-boxes {
-  height: 50%;
+body .game #answer-boxes {
+  height: 70%;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -76,19 +76,20 @@ body section.game #answer-boxes {
           justify-content: space-evenly;
 }
 
-body section.game #answer-boxes div {
+body .game #answer-boxes div {
   width: 100%;
-  height: 100%;
-  margin: 5px;
+  height: 60px;
+  margin: 5px 0;
   background-color: blue;
+  opacity: 0.7;
 }
 
-body section.game #answer-boxes div button {
+body .game #answer-boxes div button {
+  border: 2px solid black;
   font-size: 25px;
   background-color: inherit;
   width: inherit;
   height: inherit;
-  border: none;
   color: white;
   margin: 0 auto;
 }

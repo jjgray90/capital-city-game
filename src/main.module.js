@@ -39,7 +39,7 @@ const capitalCities = {
   "Central African Republic": "Bangui",
   Chad: "N'Djam",
   Chile: "Santiago&nbspde&nbspChile",
-  China: "Peking",
+  China: "Beijing",
   "Christmas Island": "Flying&nbspFish&nbspCove",
   Colombia: "Santaf",
   Comoros: "Moroni",
@@ -77,9 +77,9 @@ const capitalCities = {
   Germany: "Berlin",
   Ghana: "Accra",
   Gibraltar: "Gibraltar",
-  Greece: "Athenai",
+  Greece: "Athens",
   Greenland: "Nuuk",
-  Grenada: "Saint&nbspvGeorge's",
+  Grenada: "Saint&nbspGeorge's",
   Guadeloupe: "Basse&nbspTerre",
   Guam: "Aga",
   Guatemala: "Ciudad&nbspde&nbspGuatemala",
@@ -193,7 +193,7 @@ const capitalCities = {
   "South Georgia and the South Sandwich Islands": "King&nbspEdward&nbspPoint",
   "South Korea": "Seoul",
   "South Sudan": "Juba",
-  Spai: "Madrid",
+  Spain: "Madrid",
   "Sri Lanka": "Colombo",
   Sudan: "Khartum",
   Suriname: "Paramaribo",
@@ -227,14 +227,13 @@ const capitalCities = {
   Vietnam: "Hanoi",
   Wales: "Cardiff",
   "Wallis and Futuna": "Mata'utu",
-  WesternSahara: "El-Aai",
+  "Western Sahara": "El-Aai",
   Yemen: "Sanaa",
-  Yugoslavia: "Beograd",
   Zambia: "Lusaka",
   Zimbabwe: "Harare"
 };
 
-// import capitalCities from "./data";
+// import { capitalCities } from "./data.module.js";
 
 const getRandomCities = obj => {
   const countries = Object.keys(obj);

@@ -9,7 +9,9 @@ body {
   background-image: url("./img/world-map.png");
   background-color: #cccc;
   background-size: cover;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   height: 100vh;
   width: 100%;
   padding: 10px;
@@ -39,6 +41,7 @@ body {
       opacity: 0.7;
       height: 45%;
       width: 100%;
+      max-width: 500px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -49,6 +52,7 @@ body {
     #answer-boxes {
       height: 70%;
       width: 100%;
+      max-width: 500px;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
@@ -57,13 +61,12 @@ body {
         width: 100%;
         height: 60px;
         margin: 5px 0;
-        background-color: blue;
-        opacity: 0.7;
 
         button {
           border: 2px solid black;
           font-size: 25px;
-          background-color: inherit;
+          background-color: blue;
+          opacity: 0.7;
           width: inherit;
           height: inherit;
           color: white;
@@ -71,5 +74,11 @@ body {
         }
       }
     }
+  }
+}
+
+@media only screen and (min-width: 400px) {
+  #answer-boxes div button {
+    background-color: green;
   }
 }
